@@ -5,6 +5,7 @@
   border: 2px solid hsl(223, 31%, 20%);
   border-radius: 16px;
   position: relative;
+  margin-bottom: 20px ;
 }
 
 .keys .keys-buttons {
