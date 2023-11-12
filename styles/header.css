@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  margin-bottom: 16px;
+}
+
+.calc-text {
+  font-weight: 700;
+  font-size: 30px;
+  margin-right: 160px;
+}
+
+.theme-text {
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.radio-button {
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  /*appearance: none;*/
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 50%;
+}
+
+.radio-button:hover {
+  cursor: pointer;
+}
+
+.tri-state-toggle {
+  justify-content: center;
+  display: flex;
+  border: 2px solid hsl(223, 31%, 20%);
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 50px;
+}

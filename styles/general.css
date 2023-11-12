@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.attribution { 
+  color: rgb(252, 252, 252);
+  font-size: 12px; text-align: center; 
+}
+
+.attribution a { 
+  color: hsl(228, 81%, 68%); 
+}
+
+.body {
+  padding-top: 30px;
+  background-color: hsl(222, 26%, 31%);
+  font-family: 'League Spartan', sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25%;
+  padding-right: 25%;
+}

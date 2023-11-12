@@ -1,0 +1,72 @@
+.keys {
+  height: 400px;
+  width: 400px;
+  background-color: hsl(223, 31%, 20%);
+  border: 2px solid hsl(223, 31%, 20%);
+  border-radius: 16px;
+  position: relative;
+}
+
+.keys .keys-buttons {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.keys-buttons button {
+  border-radius: 10px;
+  background-color: hsl(30, 25%, 89%);
+  height: 60px;
+  color: hsl(221, 14%, 31%);
+  font-size: 32px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  box-shadow: 1px 1px hsl(225, 21%, 49%);
+}
+
+.keys-buttons .del-button {
+  border-radius: 10px;
+  font-size: 26px;
+  background-color: hsl(225, 21%, 49%);
+  color: hsl(30, 25%, 89%);
+  box-shadow: 1px 1px hsl(225, 21%, 49%);
+}
+
+.keys .last-keys-buttons {
+  border-radius: 10px;
+  margin-top: 16px;
+  margin-right: 20px;
+  margin-left: 20px;
+  grid-template-columns: 1fr 1fr;
+  height: 60px;
+  display: grid;
+  column-gap: 16px;
+}
+
+.keys .last-keys-buttons button {
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  justify-content: center;
+  align-content: center;
+}
+
+.last-keys-buttons .reset-button {
+  border-radius: 10px;
+  background-color: hsl(225, 21%, 49%);
+  color: hsl(30, 25%, 89%);
+  box-shadow: 0.5px 1px hsl(225, 21%, 49%);
+}
+
+.last-keys-buttons .equal-button {
+  border-radius: 10px;
+  background-color: hsl(6, 63%, 50%);
+  color: hsl(30, 25%, 89%);
+  box-shadow: 0.5px 0.5px hsl(6, 70%, 34%);
+}

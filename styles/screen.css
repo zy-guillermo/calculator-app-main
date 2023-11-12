@@ -1,0 +1,29 @@
+.calc-screen {
+  height: 100px;
+  width: 400px;
+  background-color: hsl(224, 36%, 15%);
+  border: 2px solid hsl(224, 36%, 15%);
+  border-radius: 16px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.calc-screen .current-operand {
+  position: absolute;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  right: 25px;
+  bottom: 65px;
+  color: hsl(0, 0%, 100%);
+}
+
+.calc-screen .previous-operand {
+  position: absolute;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  right: 25px;
+  bottom: 20px;
+  color: hsl(0, 0%, 100%);
+}
