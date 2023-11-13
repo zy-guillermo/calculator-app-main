@@ -93,19 +93,36 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
+var flag = false
+var disabledColor = '1'
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
 numberButtons.forEach(button => {
   button.addEventListener('click', () => {
+    if(equalsButton.disabled === true && disabledColor === 1){
+      equalsButton.style.backgroundColor = "hsl(6, 63%, 50%)"
+    }
+    else if(equalsButton.disabled === true && disabledColor === 2){
+      equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)"
+    }
+    if(flag === true){
+      calculator.clear()
+      flag = false
+    }
     calculator.appendNumber(button.innerText)
     calculator.updateDisplay()
+    equalsButton.disabled = false
   })
 })
 
 operationButtons.forEach(button => {
   button.addEventListener('click', () => {
+    equalsButton.disabled = true
+    equalsButton.style.backgroundColor = "hsl(0, 0%, 58%)"
+    equalsButton.style.zIndex = 100;
     calculator.chooseOperation(button.innerText)
+    flag = false
     calculator.updateDisplay()
   })
 })
@@ -113,6 +130,7 @@ operationButtons.forEach(button => {
 equalsButton.addEventListener('click', button => {
   calculator.compute()
   calculator.updateDisplay()
+  flag = true
 })
 
 allClearButton.addEventListener('click', button => {
@@ -125,9 +143,73 @@ deleteButton.addEventListener('click', button => {
   calculator.updateDisplay()
 })
 
-/**let screen = document.getElementById('numbers').innerText;
 
-console.log(screen);
+const bodyBG = document.querySelector('.body')
+const radioButtons = document.querySelectorAll('.radio-button')
+const attriText = document.querySelector('.attribution')
+const header = document.querySelector('.header')
+const keys = document.querySelector('.keys')
+const keysButtons = document.querySelector('.btns')
+const calcScreen = document.querySelector('.calc-screen')
 
-screen = '1';
-console.log(screen);**/
+radioButtons.forEach(input => {
+  input.addEventListener('click', () =>{
+    switch (input.value){
+      case 'one':
+        disabledColor = 1
+        bodyBG.style.backgroundColor = "hsl(222, 26%, 31%)"
+        attriText.style.color = "rgb(252, 252, 252)"
+        header.style.color = "aliceblue"
+        keys.style.backgroundColor = "hsl(223, 31%, 20%)"
+        keys.style.borderColor = "hsl(223, 31%, 20%)"
+        calcScreen.style.backgroundColor = "hsl(224, 36%, 15%)"
+        calcScreen.style.color = "hsl(0, 0%, 100%)"
+        deleteButton.style.backgroundColor = "hsl(225, 21%, 49%)"
+        allClearButton.style.backgroundColor = "hsl(225, 21%, 49%)"
+        if (equalsButton.disabled === false){
+          equalsButton.style.backgroundColor = "hsl(6, 63%, 50%)"
+        }
+        break
+      case 'two':
+        disabledColor = 1
+        bodyBG.style.backgroundColor = "hsl(0, 0%, 90%)"
+        attriText.style.color = "hsl(60, 10%, 19%)"
+        header.style.color = "hsl(60, 10%, 19%)"
+        keys.style.backgroundColor = "hsl(0, 5%, 81%)"
+        calcScreen.style.backgroundColor = "hsl(0, 0%, 93%)"
+        calcScreen.style.color = "hsl(60, 10%, 19%)"
+        deleteButton.style.backgroundColor = "hsl(185, 42%, 37%)"
+        allClearButton.style.backgroundColor = "hsl(185, 42%, 37%)"
+        if (equalsButton.disabled === false){
+          equalsButton.style.backgroundColor = "hsl(25, 98%, 40%)"
+        }
+        break
+      case 'three':
+        disabledColor = 2
+        bodyBG.style.backgroundColor = "hsl(268, 75%, 9%)"
+        attriText.style.color = "rgb(252, 252, 252)"
+        header.style.color = "hsl(52, 100%, 62%)"
+        keys.style.backgroundColor = "hsl(268, 71%, 12%)"
+        keys.style.borderColor = "hsl(268, 71%, 12%)"
+        calcScreen.style.backgroundColor = "hsl(268, 71%, 12%)"
+        calcScreen.style.color = "hsl(52, 100%, 62%)"
+        deleteButton.style.backgroundColor = "hsl(281, 89%, 26%)"
+        allClearButton.style.backgroundColor = "hsl(281, 89%, 26%)"
+        if (equalsButton.disabled === false){
+          equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)"
+        }
+        break
+    }
+  })
+})
+/*
+if(radioButton1.checked = true){
+  ///bodyBG.classList.toggle('body')
+}
+else if(radioButton2.checked = true){
+  bodyBG.classList.toggle('body2')
+}
+else if(radioButton3.checked = true){
+  bodyBG.classList.toggle('body3')
+}
+*/

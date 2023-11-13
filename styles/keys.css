@@ -19,7 +19,7 @@
   row-gap: 16px;
 }
 
-.keys-buttons button {
+.keys-buttons .btns {
   border-radius: 10px;
   background-color: hsl(30, 25%, 89%);
   height: 60px;
@@ -70,4 +70,12 @@
   background-color: hsl(6, 63%, 50%);
   color: hsl(30, 25%, 89%);
   box-shadow: 0.5px 0.5px hsl(6, 70%, 34%);
+}
+
+.last-keys-buttons .equal-button-disabled {
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 58%);
+  color: hsl(30, 25%, 89%);
+  box-shadow: 0.5px 0.5px hsl(0, 0%, 77%);
+  z-index: 100;
 }

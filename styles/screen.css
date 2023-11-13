@@ -6,6 +6,7 @@
   border-radius: 16px;
   position: relative;
   margin-bottom: 16px;
+  color: hsl(0, 0%, 100%);
 }
 
 .calc-screen .current-operand {
@@ -15,7 +16,6 @@
   font-size: 20px;
   right: 25px;
   bottom: 65px;
-  color: hsl(0, 0%, 100%);
 }
 
 .calc-screen .previous-operand {
@@ -25,5 +25,4 @@
   font-size: 40px;
   right: 25px;
   bottom: 20px;
-  color: hsl(0, 0%, 100%);
 }
