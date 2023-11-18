@@ -66,9 +66,15 @@ class Calculator {
     } else {
       integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
     }
-    if (decimalDigits != null) {
+
+    // Display ERROR if result is too long -zy
+    if (stringNumber.length > 14) {
+      return 'ERROR'
+    } 
+    else if(decimalDigits != null){
       return `${integerDisplay}.${decimalDigits}`
-    } else {
+    }
+    else {
       return integerDisplay
     }
   }
@@ -85,7 +91,7 @@ class Calculator {
   }
 }
 
-
+//Creating DOM objects -zy
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -93,8 +99,11 @@ const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+//flag to avoid appending recent result to a new one -zy
 var flag = false
-var disabledColor = '1'
+//dynamic disabled color for themes -zy
+var disabledColor = 1
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
@@ -106,6 +115,7 @@ numberButtons.forEach(button => {
     else if(equalsButton.disabled === true && disabledColor === 2){
       equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)"
     }
+    //flag in action -zy
     if(flag === true){
       calculator.clear()
       flag = false
@@ -122,6 +132,7 @@ operationButtons.forEach(button => {
     equalsButton.style.backgroundColor = "hsl(0, 0%, 58%)"
     equalsButton.style.zIndex = 100;
     calculator.chooseOperation(button.innerText)
+    //flag in action -zy
     flag = false
     calculator.updateDisplay()
   })
@@ -130,6 +141,7 @@ operationButtons.forEach(button => {
 equalsButton.addEventListener('click', button => {
   calculator.compute()
   calculator.updateDisplay()
+  //flag in action -zy
   flag = true
 })
 
@@ -152,6 +164,7 @@ const keys = document.querySelector('.keys')
 const keysButtons = document.querySelector('.btns')
 const calcScreen = document.querySelector('.calc-screen')
 
+//theme manipulation -zy
 radioButtons.forEach(input => {
   input.addEventListener('click', () =>{
     switch (input.value){
@@ -202,14 +215,3 @@ radioButtons.forEach(input => {
     }
   })
 })
-/*
-if(radioButton1.checked = true){
-  ///bodyBG.classList.toggle('body')
-}
-else if(radioButton2.checked = true){
-  bodyBG.classList.toggle('body2')
-}
-else if(radioButton3.checked = true){
-  bodyBG.classList.toggle('body3')
-}
-*/
