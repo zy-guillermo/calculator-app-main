@@ -23,7 +23,7 @@
   width: 20px;
   /*appearance: none;*/
   background-color: hsl(223, 31%, 20%);
-  border-radius: 50%;
+  border-radius: 50%; 
 }
 
 .radio-button:hover {

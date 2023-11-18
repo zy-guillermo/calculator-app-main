@@ -123,18 +123,66 @@ numberButtons.forEach(button => {
     calculator.appendNumber(button.innerText)
     calculator.updateDisplay()
     equalsButton.disabled = false
+    operationButtons.disabled = false
+    freshSession = false
   })
 })
 
+//keyboard event listener - zy 
+document.body.addEventListener('keydown', (event) =>{
+  if(equalsButton.disabled === true && disabledColor === 1){
+    equalsButton.style.backgroundColor = "hsl(6, 63%, 50%)"
+  }
+  else if(equalsButton.disabled === true && disabledColor === 2){
+    equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)"
+  }
+  //flag in action -zy
+  if(flag === true){
+    calculator.clear()
+    flag = false
+  }
+  var y = event.key
+  if('0' === y || '1' === y || '2' === y || '3' === y || '4' === y 
+    ||'5' === y || '6' === y || '7' === y || '8' === y || '9' === y || '.' === y){
+    calculator.appendNumber(event.key)
+    calculator.updateDisplay()
+    equalsButton.disabled = false
+    operationButtons.disabled = false  
+    freshSession = false
+  }
+  else if('=' === y){
+  calculator.compute()
+  calculator.updateDisplay()
+  //flag in action -zy
+  flag = true
+  }
+  else if('+' === y || '-' === y || 'x' === y || '/' === y){
+    if(freshSession === false){
+      equalsButton.disabled = true
+      equalsButton.style.backgroundColor = "hsl(0, 0%, 58%)"
+      equalsButton.style.zIndex = 100;
+      calculator.chooseOperation(y)
+      //flag in action -zy
+      flag = false
+      calculator.updateDisplay()
+    }
+  }
+})
+
+//for the operations
+var freshSession = true
+
 operationButtons.forEach(button => {
   button.addEventListener('click', () => {
-    equalsButton.disabled = true
-    equalsButton.style.backgroundColor = "hsl(0, 0%, 58%)"
-    equalsButton.style.zIndex = 100;
-    calculator.chooseOperation(button.innerText)
-    //flag in action -zy
-    flag = false
-    calculator.updateDisplay()
+    if(freshSession === false){
+      equalsButton.disabled = true
+      equalsButton.style.backgroundColor = "hsl(0, 0%, 58%)"
+      equalsButton.style.zIndex = 100;
+      calculator.chooseOperation(button.innerText)
+      //flag in action -zy
+      flag = false
+      calculator.updateDisplay()
+    }
   })
 })
 
@@ -143,11 +191,21 @@ equalsButton.addEventListener('click', button => {
   calculator.updateDisplay()
   //flag in action -zy
   flag = true
+  operationButtons.disabled = false
 })
 
 allClearButton.addEventListener('click', button => {
+  if(equalsButton.disabled === true && disabledColor === 1){
+    equalsButton.style.backgroundColor = "hsl(6, 63%, 50%)"
+  }
+  else if(equalsButton.disabled === true && disabledColor === 2){
+    equalsButton.style.backgroundColor = "hsl(176, 100%, 44%)"
+  }
+  equalsButton.disabled = false  
   calculator.clear()
   calculator.updateDisplay()
+  operationButtons.disabled = true
+  freshSession = true
 })
 
 deleteButton.addEventListener('click', button => {

@@ -70,7 +70,7 @@
   color: hsl(30, 25%, 89%);
   box-shadow: 0.5px 1px hsl(225, 21%, 49%);
   cursor: pointer;
-}
+} 
 
 .last-keys-buttons .equal-button {
   border-radius: 10px;

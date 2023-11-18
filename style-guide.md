@@ -40,7 +40,7 @@ The designs were created to the following widths:
 - Light gray (main background): hsl(0, 0%, 90%)
 - Grayish red (toggle background, keypad background): hsl(0, 5%, 81%)
 - Very light gray (screen background): hsl(0, 0%, 93%)
-
+ 
 #### Keys
 
 - Dark moderate cyan (key background): hsl(185, 42%, 37%)
